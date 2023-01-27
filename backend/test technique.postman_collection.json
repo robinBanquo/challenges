@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "36b5a470-855b-4744-91a7-30f1d0e1f4bd",
+		"name": "test technique",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2854676"
+	},
+	"item": [
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"robin32\", \"password\": \"cara\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"robin32\", \"password\": \"cara\", \"strategy\": \"local\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/authentication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"authentication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE2NzQ1Mzc1ODAsImV4cCI6MTY3NDYyMzk4MCwiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiNjNjZjZhNjM5NGE2ZTM3ODEzNjNlZTBiIiwianRpIjoiOTk2ZmI0NDAtMzkzNS00YTdiLTk1NGItMjc1NzhmMmFlMjVkIn0.kAw6teTiKtppNNhF1gUL5pmORTOzsVukZn8axD1T4nQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/users/63cf5cce761d513a22e64418",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"users",
+						"63cf5cce761d513a22e64418"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE2NzQ1MzM4ODAsImV4cCI6MTY3NDYyMDI4MCwiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiNjNjZjViOTc3NjFkNTEzYTIyZTY0NDA3IiwianRpIjoiODlhNzNlNjktOGQ5Ny00OTgxLTk2M2UtNDM5ZjZiMWFkMTNlIn0.wDKlHjLgEFgvwUWE-kZCdKZukIh1YIv4wesfN-sFFig",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/users/63cf5b97761d513a22e64407",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"users",
+						"63cf5b97761d513a22e64407"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post events",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE2NzQ2NTMxOTgsImV4cCI6MTY3NDczOTU5OCwiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiNjNkMTJkZmE4Y2ZmZDJkMDFmMDE2MmJiIiwianRpIjoiZWVhN2I5ZDAtYTFiNC00MjVlLWEyMTYtYTgxN2I2NmFiMGFmIn0.oNSHQxoCDdCDpIyGcWsC5OKm_I_QI-tCEYxY8dk5UXc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\": \"email_notifications\", \"enabled\": false }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch events",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE2NzQ1Mzc1ODAsImV4cCI6MTY3NDYyMzk4MCwiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiNjNjZjZhNjM5NGE2ZTM3ODEzNjNlZTBiIiwianRpIjoiOTk2ZmI0NDAtMzkzNS00YTdiLTk1NGItMjc1NzhmMmFlMjVkIn0.kAw6teTiKtppNNhF1gUL5pmORTOzsVukZn8axD1T4nQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"email_notifictions\", \"enabled\": true }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

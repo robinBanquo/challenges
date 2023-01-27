@@ -9,10 +9,14 @@ module.exports = function (app) {
     DB_PORT,
     DB_NAME,
   } = process.env;
-  mongoose.connect(
-     `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`
+  let mongoUrl =  `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`;
 
-  ).catch(err => {
+  if(process.argv[2] === 'test/'){
+  
+    mongoUrl = 'mongodb://127.0.0.1:27017';
+  }
+  console.log('mongoUrl = ', mongoUrl);
+  mongoose.connect( mongoUrl ).catch(err => {
     logger.error(err);
     process.exit(1);
   });

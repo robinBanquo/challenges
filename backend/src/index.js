@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const logger = require('./logger');
 const app = require('./app');
-const port = process.env.NODE_DOCKER_PORT
+const port = process.env.NODE_DOCKER_PORT;
 const server = app.listen(port);
 
 process.on('unhandledRejection', (reason, p) =>
