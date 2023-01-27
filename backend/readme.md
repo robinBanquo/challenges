@@ -1,3 +1,8 @@
+# See the DOC.md file to understand how to launch the project.
+
+
+
+
 # Backend engineering challenge
 
 This challenge is used by Didomi for evaluating candidates for backend development positions.
