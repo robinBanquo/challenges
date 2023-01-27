@@ -46,7 +46,7 @@ it will return
 		"createdAt": "2023-01-27T05:47:26.278Z",
 		"updatedAt": "2023-01-27T05:47:26.278Z",
 		"__v": 0
-}
+	}
 or a 422 if email is invalid or if email doesnt exists
 
 #### authentication 
@@ -87,3 +87,55 @@ it will return
 		"__v": 0
 	}
 
+### EVENTS
+
+#### create
+to create an event
+
+	/post /events
+	 Header : {
+	     Authorization : "Bearer "+ token
+     }
+     body : {
+	     type:'changeConsent',
+		 changeConsent: {
+			type:  'email_notifications', //or 'sms_notifications']
+			enabled: true
+		}
+	}
+
+it will return the user event object: 
+
+	{
+		"type": "changeConsent",
+		"changeConsent": {
+			"type": "email_notifications",
+			"enabled": true,
+			"_id": "63d36e7600626c04ce15e9b6"
+		},
+		"user_id": "63d36062d09632c45bd7f38d",
+		"_id": "63d36e7600626c04ce15e9b5",
+		"createdAt": "2023-01-27T06:25:58.341Z",
+		"updatedAt": "2023-01-27T06:25:58.341Z",
+		"__v": 0
+	}
+
+and that will have the effect of changing the consent level of the user : 
+
+	{
+	"_id": "63d36062d09632c45bd7f38d",
+	"email": "rofdbidddn3@2ffd.gg",
+	"consents": [
+		{
+		"type": "email_notifications",
+		"enabled": true,
+		"_id": "63d36e7600626c04ce15e9b9"
+		}
+	],
+	"createdAt": "2023-01-27T05:25:54.276Z",
+	"updatedAt": "2023-01-27T06:25:58.345Z",
+	"__v": 0
+	}
+if event isn't well formated it will throw a 422 error.
+#### edit
+not allowed, will throw a 405 error
