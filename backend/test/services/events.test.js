@@ -17,14 +17,20 @@ describe('\'events\' service', () => {
   it('creates event and is shown in user object', async () => {
     
     const event = await app.service('events').create({
-      type: 'sms_notifications', 
-      enabled: true 
-    }, {user: user});
+      type:'changeConsent',
+      changeConsent: {
+        type: 'sms_notifications', 
+        enabled: true }
+    }, {
+      user: user
+    });
     //refresh user
     user = await app.service('users').get(user._id);
     await app.service('events').create({
-      type: 'email_notifications', 
-      enabled: true 
+      type:'changeConsent',
+      changeConsent: {
+        type: 'email_notifications', 
+        enabled: true }
     }, {user: user});
     // refresh of the user
 
@@ -40,8 +46,10 @@ describe('\'events\' service', () => {
   it('throw 422 error if invalid data', async () => {
     try {
       await app.service('events').create({
-        type: 'not recognized notif', 
-        enabled: false 
+        type:'changeConsent',
+        changeConsent: {
+          type: 'not_recognized', 
+          enabled: true }
       }, {user: user});
     } catch (error) {
       assert.equal(error.code, 422);
@@ -50,13 +58,17 @@ describe('\'events\' service', () => {
 
   it('is not updatable', async () => {
     const event = await app.service('events').create({
-      type: 'sms_notifications', 
-      enabled: true 
+      type:'changeConsent',
+      changeConsent: {
+        type: 'sms_notifications', 
+        enabled: true }
     }, {user: user});
     try {
       await app.service('events').patch(event._id,{
-        type: 'sms_notifications', 
-        enabled: false 
+        type:'changeConsent',
+        changeConsent: {
+          type: 'sms_notifications', 
+          enabled: false }
       }, {user: user});
     } catch (error) {
       assert.equal(error.code, 405);

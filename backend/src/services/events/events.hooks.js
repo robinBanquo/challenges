@@ -2,7 +2,7 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 
 const setUserId = require('../../hooks/set-user-id');
 
-const editUserConsents = require('../../hooks/edit-user-consents');
+const handle_user_events = require('../../hooks/handle_user_events');
 
 const errorHandler = require('../../hooks/error-handler');
 
@@ -13,7 +13,7 @@ module.exports = {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [setUserId(), editUserConsents()],
+    create: [setUserId(), handle_user_events()],
     update: [blockAction()],
     patch: [blockAction()],
     remove: [blockAction()]

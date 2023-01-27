@@ -6,9 +6,15 @@ module.exports = function (app) {
   const modelName = 'events';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  const schema = new Schema({
+
+  const changeConsent = new Schema({
     type: { type: String,  enum: ['email_notifications', 'sms_notifications'] , required:true},
-    enabled: { type: Boolean, required:true },
+    enabled: { type: Boolean, required:true }
+  });
+
+  const schema = new Schema({
+    type:{ type: String,  enum: ['changeConsent'] , required:true},
+    changeConsent: {type: changeConsent},
     user_id: {type: String, required:true}
   }, {
     timestamps: true
